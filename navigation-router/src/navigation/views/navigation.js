@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {NavLink} from 'react-router-dom';
 import {closeNavigation} from '../actions.js';
 
 import './style.css';
@@ -15,10 +16,19 @@ const Navigation = ({navigationState, onClickCloseMenu}) => (
 			</i>
 		</div>
 		<div className="navigation-item">
-			<span className="navigation-item-text">Item 01</span>
+			<span className="navigation-item-text">
+	      <NavLink exact to="/" replace>Home</NavLink>
+	    </span>
 		</div>
 		<div className="navigation-item">
-			<span className="navigation-item-text">Item 02</span>
+			<span className="navigation-item-text">
+	      <NavLink to="/about" replace>About</NavLink>
+	    </span>
+		</div>
+		<div className="navigation-item">
+			<span className="navigation-item-text">
+	      <NavLink to="/topic" replace>Topic</NavLink>
+	    </span>
 		</div>
 	</div>
 );
