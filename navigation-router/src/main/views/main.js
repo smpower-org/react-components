@@ -7,11 +7,36 @@ import {view as Topic} from '../../pages/topic/';
 import './style.css';
 
 
+const routes = [
+  {
+	  exact: true,
+		path: '/',
+		component: Home
+	},
+	{
+	  path: '/about',
+		component: About
+	},
+	{
+	  path: '/topic',
+		component: Topic
+	}
+];
+
 const Main = () => (
 	<div className="main">
-	  <Route exact path="/" component={Home} />
-	  <Route path="/about" component={About} />
-	  <Route path="/topic" component={Topic} />
+	  {
+		  routes.map((route, index) => {
+			  return (
+				  <Route 
+					  key={index}
+					  exact={route.exact}
+					  path={route.path}
+					  component={route.component}
+					/>
+				);
+			})
+		}
 	</div>
 );
 

@@ -6,6 +6,25 @@ import {closeNavigation} from '../actions.js';
 import './style.css';
 
 
+const navLinks = [
+  {
+	  exact: true,
+		to: '/',
+		replace: true,
+		text: 'Home'
+	},
+	{
+	  to: '/about',
+		replace: true,
+		text: 'About'
+	},
+	{
+	  to: '/topic',
+		replace: true,
+		text: 'Topic'
+	}
+];
+
 const Navigation = ({navigationState, onClickCloseMenu}) => (
 	<div className={navigationState ? 'navigation active' : 'navigation'}>
 		<div className="navigation-item navigation-menu">
@@ -15,21 +34,22 @@ const Navigation = ({navigationState, onClickCloseMenu}) => (
 			>
 			</i>
 		</div>
-		<div className="navigation-item">
-			<span className="navigation-item-text">
-	      <NavLink exact to="/" replace>Home</NavLink>
-	    </span>
-		</div>
-		<div className="navigation-item">
-			<span className="navigation-item-text">
-	      <NavLink to="/about" replace>About</NavLink>
-	    </span>
-		</div>
-		<div className="navigation-item">
-			<span className="navigation-item-text">
-	      <NavLink to="/topic" replace>Topic</NavLink>
-	    </span>
-		</div>
+	  {
+		  navLinks.map((navLink, index) => {
+			  return (
+				  <div key={index} className="navigation-item">
+					  <span className="navigation-item-text">
+					    <NavLink
+					      exact={navLink.exact}
+					      to={navLink.to}
+					      replace={navLink.replace}
+					      onClick={onClickCloseMenu}
+					    >{navLink.text}</NavLink>
+					  </span>
+					</div>
+				);
+			})
+		}
 	</div>
 );
 
