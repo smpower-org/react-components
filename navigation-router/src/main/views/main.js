@@ -2,7 +2,7 @@ import React from 'react';
 import {Route} from 'react-router-dom';
 import {view as Home} from '../../pages/home/';
 import {view as About} from '../../pages/about/';
-import {view as Topic} from '../../pages/topic/';
+import {view as Topics} from '../../pages/topics/';
 
 import './style.css';
 
@@ -18,8 +18,8 @@ const routes = [
 		component: About
 	},
 	{
-	  path: '/topic',
-		component: Topic
+	  path: '/topics',
+		component: Topics
 	}
 ];
 
