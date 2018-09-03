@@ -1,8 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import {Provider} from 'react-redux';
+import NavigationApp from './NavigationApp.js';
+import store from './Store.js';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import './index.css';
+
+ReactDOM.render(
+	<Provider store={store}>
+		<NavigationApp />
+	</Provider>,
+	document.getElementById('root')
+);
 registerServiceWorker();
