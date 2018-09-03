@@ -43,7 +43,11 @@ const Navigation = ({navigationState, onClickCloseMenu}) => (
 					      exact={navLink.exact}
 					      to={navLink.to}
 					      replace={navLink.replace}
-					      onClick={onClickCloseMenu}
+					      onClick={(event) => {
+									if (event.target.className === 'active') return;
+									onClickCloseMenu();
+									return;
+								}}
 					    >{navLink.text}</NavLink>
 					  </span>
 					</div>
