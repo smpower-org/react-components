@@ -1,9 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {NavLink} from 'react-router-dom';
 import {closeNavigation} from '../actions.js';
 
 import './style.css';
 
+
+const navLinks = [
+  {
+	  exact: true,
+		to: '/',
+		replace: true,
+		text: 'Home'
+	},
+	{
+	  to: '/about',
+		replace: true,
+		text: 'About'
+	},
+	{
+	  to: '/topic',
+		replace: true,
+		text: 'Topic'
+	}
+];
 
 const Navigation = ({navigationState, onClickCloseMenu}) => (
 	<div className={navigationState ? 'navigation active' : 'navigation'}>
@@ -14,12 +34,22 @@ const Navigation = ({navigationState, onClickCloseMenu}) => (
 			>
 			</i>
 		</div>
-		<div className="navigation-item">
-			<span className="navigation-item-text">Item 01</span>
-		</div>
-		<div className="navigation-item">
-			<span className="navigation-item-text">Item 02</span>
-		</div>
+	  {
+		  navLinks.map((navLink, index) => {
+			  return (
+				  <div key={index} className="navigation-item">
+					  <span className="navigation-item-text">
+					    <NavLink
+					      exact={navLink.exact}
+					      to={navLink.to}
+					      replace={navLink.replace}
+					      onClick={onClickCloseMenu}
+					    >{navLink.text}</NavLink>
+					  </span>
+					</div>
+				);
+			})
+		}
 	</div>
 );
 
