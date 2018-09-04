@@ -17,8 +17,8 @@ const navLinks = [
 		text: 'About'
 	},
 	{
-	  to: '/topic',
-		text: 'Topic'
+		to: '/topics',
+		text: 'Topics'
 	}
 ];
 
