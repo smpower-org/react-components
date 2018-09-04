@@ -2,9 +2,6 @@ import React from 'react';
 import MarkdownIt from 'markdown-it';
 import markdownFile from './markdown.md';
 
-const md = new MarkdownIt();
-const result = md.render(markdownFile);
-
 class MarkdownApp extends React.Component {
 	constructor() {
 	  super();
