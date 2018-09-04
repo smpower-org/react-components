@@ -10,17 +10,14 @@ const navLinks = [
   {
 	  exact: true,
 		to: '/',
-		replace: true,
 		text: 'Home'
 	},
 	{
 	  to: '/about',
-		replace: true,
 		text: 'About'
 	},
 	{
 	  to: '/topic',
-		replace: true,
 		text: 'Topic'
 	}
 ];
@@ -42,8 +39,8 @@ const Navigation = ({navigationState, onClickCloseMenu}) => (
 					    <NavLink
 					      exact={navLink.exact}
 					      to={navLink.to}
-					      replace={navLink.replace}
 					      onClick={(event) => {
+									console.log(event);
 									if (event.target.className === 'active') return;
 									onClickCloseMenu();
 									return;
