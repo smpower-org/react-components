@@ -40,7 +40,6 @@ const Navigation = ({navigationState, onClickCloseMenu}) => (
 					      exact={navLink.exact}
 					      to={navLink.to}
 					      onClick={(event) => {
-									console.log(event);
 									if (event.target.className === 'active') return;
 									onClickCloseMenu();
 									return;
