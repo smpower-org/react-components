@@ -1,3 +1,3 @@
-import view from './views/topic.js';
+import view from './views/topics.js';
 
 export {view};
