@@ -36,7 +36,7 @@ class Topic extends React.Component {
   render() {
 	  const {location, match} = this.props;
 
-		if (this.props.match.url === this.props.location.pathname) {
+		if (match.url === location.pathname) {
 			return (
 				<div className="main-topic">
 					<div className="main-topic-links">
