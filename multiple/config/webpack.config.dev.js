@@ -24,9 +24,9 @@ const env = getClientEnvironment(publicUrl);
 
 const htmlWebpackPluginOptions = {
   inject: true,
-	chunks: ['index'],
-	title: '首页',
-	template: paths.appHtml
+  chunks: ['index'],
+  title: '首页',
+  template: paths.appHtml
 };
 
 // This is the development configuration.
@@ -40,37 +40,37 @@ module.exports = {
   // This means they will be the "root" imports that are included in JS bundle.
   // The first two entry points enable "hot" CSS and auto-refreshes for JS.
   entry: {
-	  index: [
-			// We ship a few polyfills by default:
-			require.resolve('./polyfills'),
-			// Include an alternative client for WebpackDevServer. A client's job is to
-			// connect to WebpackDevServer by a socket and get notified about changes.
-			// When you save a file, the client will either apply hot updates (in case
-			// of CSS changes), or refresh the page (in case of JS changes). When you
-			// make a syntax error, this client will display a syntax error overlay.
-			// Note: instead of the default WebpackDevServer client, we use a custom one
-			// to bring better experience for Create React App users. You can replace
-			// the line below with these two lines if you prefer the stock client:
-			// require.resolve('webpack-dev-server/client') + '?/',
-			// require.resolve('webpack/hot/dev-server'),
-			require.resolve('react-dev-utils/webpackHotDevClient'),
-			// Finally, this is your app's code:
-			// paths.appIndexJs,
-			paths.appIndexJs
-			// We include the app code last so that if there is a runtime error during
-			// initialization, it doesn't blow up the WebpackDevServer client, and
-			// changing JS code would still trigger a refresh.
-		],
-		about: [
-			require.resolve('./polyfills'),
-			require.resolve('react-dev-utils/webpackHotDevClient'),
-			paths.appSrc + '/entries/about.js'
-		],
-		topics: [
-			require.resolve('./polyfills'),
-			require.resolve('react-dev-utils/webpackHotDevClient'),
-			paths.appSrc + '/entries/topics.js'
-		]
+    index: [
+      // We ship a few polyfills by default:
+      require.resolve('./polyfills'),
+      // Include an alternative client for WebpackDevServer. A client's job is to
+      // connect to WebpackDevServer by a socket and get notified about changes.
+      // When you save a file, the client will either apply hot updates (in case
+      // of CSS changes), or refresh the page (in case of JS changes). When you
+      // make a syntax error, this client will display a syntax error overlay.
+      // Note: instead of the default WebpackDevServer client, we use a custom one
+      // to bring better experience for Create React App users. You can replace
+      // the line below with these two lines if you prefer the stock client:
+      // require.resolve('webpack-dev-server/client') + '?/',
+      // require.resolve('webpack/hot/dev-server'),
+      require.resolve('react-dev-utils/webpackHotDevClient'),
+      // Finally, this is your app's code:
+      // paths.appIndexJs,
+      paths.appIndexJs
+      // We include the app code last so that if there is a runtime error during
+      // initialization, it doesn't blow up the WebpackDevServer client, and
+      // changing JS code would still trigger a refresh.
+    ],
+    about: [
+      require.resolve('./polyfills'),
+      require.resolve('react-dev-utils/webpackHotDevClient'),
+      paths.appSrc + '/entries/about.js'
+    ],
+    topics: [
+      require.resolve('./polyfills'),
+      require.resolve('react-dev-utils/webpackHotDevClient'),
+      paths.appSrc + '/entries/topics.js'
+    ]
   },
   output: {
     // Add /* filename */ comments to generated require()s in the output.
@@ -245,19 +245,19 @@ module.exports = {
     // In development, this will be an empty string.
     new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
-		new HtmlWebpackPlugin({...htmlWebpackPluginOptions}),
-		new HtmlWebpackPlugin({
-		  ...htmlWebpackPluginOptions,
-			chunks: ['about'],
-			title: ['关于'],
-			filename: 'about/index.html'
-		}),
-		new HtmlWebpackPlugin({
-			...htmlWebpackPluginOptions,
-			chunks: ['topics'],
-			title: '话题',
-			filename: 'topics/index.html'
-		}),
+    new HtmlWebpackPlugin({...htmlWebpackPluginOptions}),
+    new HtmlWebpackPlugin({
+      ...htmlWebpackPluginOptions,
+      chunks: ['about'],
+      title: ['关于'],
+      filename: 'about/index.html'
+    }),
+    new HtmlWebpackPlugin({
+      ...htmlWebpackPluginOptions,
+      chunks: ['topics'],
+      title: '话题',
+      filename: 'topics/index.html'
+    }),
     // Add module names to factory functions so they appear in browser profiler.
     new webpack.NamedModulesPlugin(),
     // Makes some environment variables available to the JS code, for example:

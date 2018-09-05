@@ -47,22 +47,22 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
   : {};
 
 const htmlWebpackPluginOptions = {
-	inject: true,
-	chunks: ['index'],
-	template: paths.appHtml,
-	minify: {
-		removeComments: true,
-		collapseWhitespace: true,
-		removeRedundantAttributes: true,
-		useShortDoctype: true,
-		removeEmptyAttributes: true,
-		removeStyleLinkTypeAttributes: true,
-		keepClosingSlash: true,
-		minifyJS: true,
-		minifyCSS: true,
-		minifyURLs: true,
-	},
-	title: '首页'
+  inject: true,
+  chunks: ['index'],
+  template: paths.appHtml,
+  minify: {
+    removeComments: true,
+    collapseWhitespace: true,
+    removeRedundantAttributes: true,
+    useShortDoctype: true,
+    removeEmptyAttributes: true,
+    removeStyleLinkTypeAttributes: true,
+    keepClosingSlash: true,
+    minifyJS: true,
+    minifyCSS: true,
+    minifyURLs: true,
+  },
+  title: '首页'
 };
 
 // This is the production configuration.
@@ -275,18 +275,18 @@ module.exports = {
     new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({...htmlWebpackPluginOptions}),
-		new HtmlWebpackPlugin({
-			...htmlWebpackPluginOptions,
-			chunks: ['about'],
-			filename: 'about/index.html',
-			title: '关于'
-		}),
-		new HtmlWebpackPlugin({
-			...htmlWebpackPluginOptions,
-			chunks: ['topics'],
-			filename: 'topics/index.html',
-			title: '话题'
-		}),
+    new HtmlWebpackPlugin({
+      ...htmlWebpackPluginOptions,
+      chunks: ['about'],
+      filename: 'about/index.html',
+      title: '关于'
+    }),
+    new HtmlWebpackPlugin({
+      ...htmlWebpackPluginOptions,
+      chunks: ['topics'],
+      filename: 'topics/index.html',
+      title: '话题'
+    }),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
     // It is absolutely essential that NODE_ENV was set to production here.
