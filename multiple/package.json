@@ -1,7 +1,18 @@
 {
   "name": "multiple",
   "version": "0.1.0",
-  "private": true,
+  "description": "基于 React 和 Webpack 的多页应用通用配置",
+  "keywords": "React, Webpack, Multiple App",
+  "bugs": {
+    "url": "https://github.com/smpower-org/react-components/issues"
+  },
+  "homepage": "/react-components/multiple/build/",
+  "license": "Apache License 2.0",
+  "author": {
+    "name": "王若非",
+    "email": "rf.wangchn@gmail.com",
+    "github": "https://github.com/smpower/"
+  },
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
@@ -91,5 +102,8 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-	"homepage": "/react-components/multiple/build/"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smpower-org/react-components.git"
+  }
 }
